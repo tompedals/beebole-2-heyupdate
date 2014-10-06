@@ -46,8 +46,7 @@ Instructions
 
 - Download [bbl2idt.sh](../blob/bbl2idt.sh) and put it anywhere
 - chmod +x bbl2idt.sh
-- Either:
-  - Set up regular environment variables `BBL_TOKEN` and `IDT_TOKEN` to the values you retrieved above.
+- Set up regular environment variables `BBL_TOKEN` and `IDT_TOKEN` to the values you retrieved above.
     The most convenient place to do this is in your .profile or .bash_profile.  e.g.: 
 
 
@@ -56,14 +55,15 @@ export BBL_TOKEN=66767f3330876e1332ababa12345678ac20fa3b6
 export IDT_TOKEN=aba12345678ac20fa3b666767f3330876e1332ab
 ```
 
-    After your next fresh login test that these are now available:
+  After your next fresh login test that these are now available. e.g.:
+
 
 ```bash
 echo BBL_TOKEN is $BBL_TOKEN
 echo IDT_TOKEN is $IDT_TOKEN
 ```
 
-  - Alternatively, just hard-code your tokens as can be seen in the first few lines of the script.  It's not a sin.
+- Alternatively, just hard-code your tokens as can be seen in the first few lines of the script.  It's not a sin.
 
 Usage
 -----
