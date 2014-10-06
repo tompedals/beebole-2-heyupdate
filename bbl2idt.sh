@@ -3,8 +3,8 @@
 # bbl2idt.sh -- Post existing entries from http://beebole.com to http://idonethis.com
 
 day=${1:-$(date '+%Y-%m-%d')}
-bbl_token=${2:-66767f3330876e1332axxxxxxxxxxxxac20fa3b6}
-idt_token=${3:-d342d7e0478b9965da6xxxxxxxxxxxx0981bf3f6}
+bbl_token=${BBL_TOKEN:-66767f3330876e1332axxxxxxxxxxxxac20fa3b6}
+idt_token=${IDT_TOKEN:-d342d7e0478b9965da6xxxxxxxxxxxx0981bf3f6}
 
 tmp=/tmp/beebole2idonethis.$$; trap "rm -f $tmp" EXIT
 
