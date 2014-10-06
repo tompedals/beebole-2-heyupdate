@@ -74,6 +74,15 @@ Usage
 
 This will do the synch for the given date.  The date is optional and defaults to today.
 
+Notes
+-----
+
+Sometimes you need to make late adjustments to your BeeBole entries.
+What happens now if you run this script a second time for the same day?
+The newly corrected entries will be written as an additional batch to iDoneThis for that day;
+so you should then log into the iDoneThis web interface and you can easily scrub the original batch there.
+It may be possible to automate this deletion via the API.. I'll look into it Real Soon Now.
+
 Author
 ------
 

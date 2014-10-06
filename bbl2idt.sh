@@ -54,3 +54,6 @@ read -r -d '' idt_data <<IDT_DATA
 IDT_DATA
 
 curl -w "\n" -H "$idt_json" -H "$idt_auth" -w $nl -k -X POST "$idt_api/dones/" -d "$idt_data"
+
+echo -e "\ndone"
+
