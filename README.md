@@ -44,33 +44,33 @@ Requirements
 Instructions
 ------------
 
-- Download [bbl2idt.sh](../bbl2idt.sh) and put it anywhere
+- Download [bbl2idt.sh](../blob/bbl2idt.sh) and put it anywhere
 - chmod +x bbl2idt.sh
 - Either:
   - Set up regular environment variables `BBL_TOKEN` and `IDT_TOKEN` to the values you retrieved above.
     The most convenient place to do this is in your .profile or .bash_profile.  e.g.: 
 
 
-        ```bash
-        export BBL_TOKEN=66767f3330876e1332ababa12345678ac20fa3b6
-        export IDT_TOKEN=aba12345678ac20fa3b666767f3330876e1332ab
-        ```
+```bash
+export BBL_TOKEN=66767f3330876e1332ababa12345678ac20fa3b6
+export IDT_TOKEN=aba12345678ac20fa3b666767f3330876e1332ab
+```
 
     After your next fresh login test that these are now available:
 
-        ```bash
-        echo BBL_TOKEN is $BBL_TOKEN
-        echo IDT_TOKEN is $IDT_TOKEN
-        ```
+```bash
+echo BBL_TOKEN is $BBL_TOKEN
+echo IDT_TOKEN is $IDT_TOKEN
+```
 
-  - Alternatively, just hard-code the tokens as they already appear in the first few lines of the script.  It's not a sin.
+  - Alternatively, just hard-code your tokens as can be seen in the first few lines of the script.  It's not a sin.
 
 Usage
 -----
 
-    ```
-    ./bbl2idt.sh [yyyy-mm-dd]
-    ```
+```
+./bbl2idt.sh [yyyy-mm-dd]
+```
 
 This will do the synch for the given date.  The date is optional and defaults to today.
 
@@ -78,5 +78,6 @@ Author
 ------
 
 Frank Carnovale
+
 http://binary.com
 
