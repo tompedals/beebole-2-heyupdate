@@ -6,6 +6,9 @@ day=${1:-$(date '+%Y-%m-%d')}
 bbl_token=${BBL_TOKEN:-66767f3330876e1332axxxxxxxxxxxxac20fa3b6}
 idt_token=${IDT_TOKEN:-d342d7e0478b9965da6xxxxxxxxxxxx0981bf3f6}
 
+bbl_acct=${BBL_ACCT:-binary}
+idt_team=${IDT_TEAM:-it-development-team}
+
 tmp=/tmp/beebole2idonethis.$$; trap "rm -f $tmp" EXIT
 
 read -r -d '' request <<REQUEST
@@ -37,16 +40,19 @@ read -r -d '' perl <<'PERL'
     print $str;
 PERL
 
-bbl_acc=binary
-bbl_svr=$bbl_acc.beebole-apps.com/api
+bbl_svr=$bbl_acct.beebole-apps.com/api
 bbl_uri="https://$bbl_token:x@$bbl_svr"
 
-curl -s -w "\n" -k -X POST "$bbl_uri" -d "$request" | perl -e "$perl" >$tmp
+curl -s -k -X POST "$bbl_uri" -d "$request" | perl -e "$perl" >$tmp
+
+if [ ! -s $tmp ]; then
+    echo Not posting to iDoneThis.
+    exit 1
+fi
 
 idt_text=$(cat $tmp)
 idt_api=https://idonethis.com/api/v0.1
 idt_auth="Authorization: Token $idt_token"
-idt_team=it-development-team
 idt_json="Content-Type: application/json"
 
 read -r -d '' idt_data <<IDT_DATA
