@@ -47,20 +47,23 @@ Instructions
 - Download [bbl2idt.sh](../blob/bbl2idt.sh) and put it anywhere
 - chmod +x bbl2idt.sh
 - Set up regular environment variables `BBL_TOKEN` and `IDT_TOKEN` to the values you retrieved above.
-    The most convenient place to do this is in your .profile or .bash_profile.  e.g.: 
+- Set up regular environment variables `BBL_ACCT` and `IDT_TEAM` for your __BeeBole__ company-level "account" name and your __iDoneThis__ group-level "team" name.
+    The most convenient place to declare these is in your .profile or .bash_profile.  e.g.: 
 
 
 ```bash
 export BBL_TOKEN=66767f3330876e1332ababa12345678ac20fa3b6
 export IDT_TOKEN=aba12345678ac20fa3b666767f3330876e1332ab
+export BBL_ACCT=arkey-malarkey
+export IDT_TEAM=bottle-washers
 ```
 
   After your next fresh login test that these are now available. e.g.:
 
 
 ```bash
-echo BBL_TOKEN is $BBL_TOKEN
-echo IDT_TOKEN is $IDT_TOKEN
+echo BBL_TOKEN is $BBL_TOKEN, reading from company $BBL_ACCT
+echo IDT_TOKEN is $IDT_TOKEN, posting to workgroup $IDT_TEAM
 ```
 
 - Alternatively, just hard-code your tokens as can be seen in the first few lines of the script.  It's not a sin.
