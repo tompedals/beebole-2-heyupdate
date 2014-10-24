@@ -40,6 +40,7 @@ Requirements
 - A valid account at __BeeBole__
 - A Linux terminal window
 - curl (you almost certainly have this)
+- The Perl module JSON.  If you get error messages about this, install it with e.g. `cpan -i JSON`.
 
 Instructions
 ------------
