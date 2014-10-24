@@ -45,7 +45,7 @@ Requirements
 Instructions
 ------------
 
-- Download [bbl2idt.sh](../blob/bbl2idt.sh) and put it anywhere
+- Download [bbl2idt.sh](../master/bbl2idt.sh) and put it anywhere
 - chmod +x bbl2idt.sh
 - Set up regular environment variables `BBL_TOKEN` and `IDT_TOKEN` to the values you retrieved above.
 - Set up regular environment variables `BBL_ACCT` and `IDT_TEAM` for your __BeeBole__ company-level "account" name and your __iDoneThis__ group-level "team" name.
