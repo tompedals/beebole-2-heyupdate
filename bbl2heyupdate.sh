@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# bbl2idt.sh -- Post existing entries from http://beebole.com to http://idonethis.com
+# bbl2heyupdate.sh -- Post existing entries from http://beebole.com to http://heyupdate.com
 
 day=${1:-$(date '+%Y-%m-%d')}
 bbl_token=${BBL_TOKEN:-66767f3330876e1332axxxxxxxxxxxxac20fa3b6}
-idt_token=${IDT_TOKEN:-d342d7e0478b9965da6xxxxxxxxxxxx0981bf3f6}
+heyupdate_token=${HEYUPDATE_TOKEN:-d342d7e0478b9965da6xxxxxxxxxxxx0981bf3f6}
 
 bbl_acct=${BBL_ACCT:-binary}
-idt_team=${IDT_TEAM:-it-development-team}
 
-tmp=/tmp/beebole2idonethis.$$; trap "rm -f $tmp" EXIT
+tmp=/tmp/beebole2heyupdate.$$; trap "rm -f $tmp" EXIT
 
 read -r -d '' request <<REQUEST
 {"service":"time_entry.list", "from":"$day", "to":"$day"}
@@ -46,20 +45,20 @@ bbl_uri="https://$bbl_token:x@$bbl_svr"
 curl -s -k -X POST "$bbl_uri" -d "$request" | perl -e "$perl" >$tmp
 
 if [ ! -s $tmp ]; then
-    echo Not posting to iDoneThis.
+    echo Not posting to HeyUpdate.
     exit 1
 fi
 
-idt_text=$(cat $tmp)
-idt_api=https://idonethis.com/api/v0.1
-idt_auth="Authorization: Token $idt_token"
-idt_json="Content-Type: application/json"
+heyupdate_text=$(cat $tmp)
+heyupdate_api=https://api.heyupdate.com
+heyupdate_auth="Authorization: Bearer $heyupdate_token"
+heyupdate_json="Content-Type: application/json"
 
-read -r -d '' idt_data <<IDT_DATA
-{"team":"$idt_team", "raw_text":"$idt_text", "done_date":"$day"}
-IDT_DATA
+read -r -d '' heyupdate_data <<HEYUPDATE_DATA
+{"message":"$heyupdate_text", "timestamp": "$day"}
+HEYUPDATE_DATA
 
-curl -w "\n" -H "$idt_json" -H "$idt_auth" -w $nl -k -X POST "$idt_api/dones/" -d "$idt_data"
+curl -w "\n" -H "$heyupdate_json" -H "$heyupdate_auth" -w $nl -k -X POST "$heyupdate_api/updates" -d "$heyupdate_data"
 
 echo -e "\ndone"
 
